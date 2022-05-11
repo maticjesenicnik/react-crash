@@ -53,8 +53,12 @@ function App() {
         onAdd={toggleAddTaskShow}
         showAdd={showAddTask}
       />
-      {showAddTask ? <AddTask onAdd={addTask} /> : ""}
-      <Tasks tasks={tasks} onDelete={onDelete} onToggle={toggleReminder} />
+      {showAddTask && <AddTask onAdd={addTask} />}
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={onDelete} onToggle={toggleReminder} />
+      ) : (
+        "No tasks to show"
+      )}
     </div>
   );
 }
